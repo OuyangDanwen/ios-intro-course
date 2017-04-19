@@ -1,8 +1,6 @@
 //: Playground - noun: a place where people can play
-import UIKit
 
-var myName: String = "Dora Dzvonyar"
-
+var myName: String = "Danwen Ouyang"
 func greet(name: String) {
     print("Hello \(name)")
 }
