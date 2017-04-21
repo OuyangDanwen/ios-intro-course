@@ -13,7 +13,7 @@ struct Order {
     var delivery: Bool
 }
 
-class CookieBaker: DeliveryPerson {
+class CookieBaker {
     var name: String
     var orders: [Order] = []
     var delegate: CookieDeliveryMan?
@@ -27,7 +27,7 @@ class CookieBaker: DeliveryPerson {
         if order.delivery {
             if let delegate = delegate {
                 print("\(delegate.name)! This \(order.cookie.type) cookie needs to be delivered to \(order.customer)!")
-                self.deliver(order: order)
+                self.delegate?.deliver(order: order)
             } else {
                 print("Sorry, \(order.customer). Our delivery man is currently unavailable for delivery. We will deliver it later.")
             }
@@ -41,13 +41,9 @@ class CookieBaker: DeliveryPerson {
             process(order: order)
         }
     }
-    
-    func deliver(order: Order) {
-        self.delegate!.deliver(order: order)
-    }
 }
 
-class CookieDeliveryMan: DeliveryPerson {
+class CookieDeliveryMan: DeliveryDelegate {
     var name: String
     
     init(name: String) {
@@ -59,7 +55,7 @@ class CookieDeliveryMan: DeliveryPerson {
     }
 }
 
-protocol DeliveryPerson {
+protocol DeliveryDelegate {
     func deliver(order: Order)
 }
 
@@ -71,11 +67,8 @@ let order2 = Order.init(cookie: Cookie.init(type: CookieType.diablo, cookieCrust
 let order3 = Order.init(cookie: Cookie.init(type: CookieType.oreo, cookieCrust: true), customer: "Mike", delivery: true)
 let order4 = Order.init(cookie: Cookie.init(type: CookieType.monster, cookieCrust: false), customer: "Sam", delivery: false)
 let order5 = Order.init(cookie: Cookie.init(type: CookieType.yummy, cookieCrust: true), customer: "Nancy", delivery: true)
-let orders: [Order] = [order1, order2, order3, order4, order5]
+let orders = [order1, order2, order3, order4, order5]
 
 cookieBaker.delegate = cookieDeliveryMan
 cookieBaker.orders = orders
 cookieBaker.processAll()
-
-
-
