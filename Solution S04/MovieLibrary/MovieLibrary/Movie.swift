@@ -1,12 +1,3 @@
-//
-//  Movie.swift
-//  MovieLibrary
-//
-//  Created by ios on 4/22/17.
-//  Copyright © 2017 TUM LS1. All rights reserved.
-//
-
-import Foundation
 import UIKit
 
 class Movie {
