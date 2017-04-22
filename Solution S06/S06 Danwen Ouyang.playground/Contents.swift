@@ -1,7 +1,3 @@
-enum MealType {
-    case salads, fireHydrants, cookies
-}
-
 enum MealError: Error {
     case emptyMeals
 }
@@ -35,14 +31,19 @@ class CookieMonster {
     }
 }
 
-struct Meal: Eatable {
-    var name: MealType
+struct Salad: Eatable {
+    var name: String
     var calories: Int
-    
-    init(name: MealType, calories: Int) {
-        self.name = name
-        self.calories = calories
-    }
+}
+
+struct FireHydrant: Eatable {
+    var name: String
+    var calories: Int
+}
+
+struct Cookie: Eatable {
+    var name: String
+    var calories: Int
 }
 
 struct Stack<Element> {
@@ -62,20 +63,19 @@ struct Stack<Element> {
 }
 
 protocol Eatable {
-    var name: MealType { get set }
+    var name: String { get set }
     var calories: Int { get set }
 }
 
-let cookieMonster = CookieMonster.init(name: "Tony")
+let cookieMonster = CookieMonster(name: "Tony")
 
-cookieMonster.takeFood(meal: Meal.init(name: MealType.fireHydrants, calories: 200))
-cookieMonster.takeFood(meal: Meal.init(name: MealType.salads, calories: 500))
-cookieMonster.takeFood(meal: Meal.init(name: MealType.fireHydrants, calories: 500))
-cookieMonster.takeFood(meal: Meal.init(name: MealType.cookies, calories: 300))
+cookieMonster.takeFood(meal: Salad(name: "Mango", calories: 200))
+cookieMonster.takeFood(meal: FireHydrant(name: "Rice", calories: 500))
+cookieMonster.takeFood(meal: FireHydrant(name: "Noodle", calories: 500))
+cookieMonster.takeFood(meal: Cookie(name: "Monster", calories: 300))
 
 do {
     try cookieMonster.eatFood()
 } catch MealError.emptyMeals {
     print("Cannot eat. No meals added yet!")
 }
-
