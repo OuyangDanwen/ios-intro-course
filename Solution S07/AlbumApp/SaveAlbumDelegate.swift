@@ -1,8 +1,9 @@
 import UIKit
 
 protocol SaveAlbumDelegate: class {
-    func saveArtist(album: Album, indexPath: IndexPath)
-    func saveTitle(album: Album, indexPath: IndexPath)
-    func saveYear(album: Album, indexPath: IndexPath)
-    func saveGenre(album: Album, indexPath: IndexPath)
+    
+    func saveArtist(artist: String, indexPath: IndexPath)
+    func saveTitle(title: String, indexPath: IndexPath)
+    func saveYear(year: String, indexPath: IndexPath)
+    func saveGenre(genre: String, indexPath: IndexPath)
 }

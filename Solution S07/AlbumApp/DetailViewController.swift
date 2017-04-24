@@ -2,16 +2,19 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    //MARK: instance variables
     var albums = [Album]()
     var indexPath = IndexPath()
-    var album: Album?
     weak var delegate: SaveAlbumDelegate?
     
+    //MARK: IBOutlets
     @IBOutlet weak var artistField: UITextField!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var genreField: UITextField!
     @IBOutlet weak var yearField: UITextField!
+    @IBOutlet weak var coverImage: UIImageView!
     
+    //MARK: Overides
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,28 +26,30 @@ class DetailViewController: UIViewController {
         initializeData()
     }
     
+    //MARK: private methods
     private func initializeData() {
         artistField.text = albums[(indexPath.row)].artist
         titleField.text = albums[(indexPath.row)].title
         genreField.text = albums[(indexPath.row)].genre
         yearField.text = String(albums[(indexPath.row)].year)
         self.title = artistField.text! + " Album"
-        album = albums[indexPath.row]
+        coverImage.image = UIImage(named: albums[indexPath.row].coverImageName)
     }
 }
 
+//MARK: UITextFieldDelegate
 extension DetailViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         
         if textField == artistField {
-            delegate?.saveTitle(album: album!, indexPath: indexPath)
+            delegate?.saveArtist(artist: artistField.text!, indexPath: indexPath)
         } else if textField == titleField {
-            delegate?.saveArtist(album: album!, indexPath: indexPath)
+            delegate?.saveTitle(title: titleField.text!, indexPath: indexPath)
         } else if textField == genreField {
-            delegate?.saveGenre(album: album!, indexPath: indexPath)
+            delegate?.saveGenre(genre: genreField.text!, indexPath: indexPath)
         } else if textField == yearField {
-            delegate?.saveYear(album: album!, indexPath: indexPath)
+            delegate?.saveYear(year: yearField.text!, indexPath: indexPath)
         }
     }
 }

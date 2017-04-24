@@ -2,24 +2,24 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private let a1 = Album(title: "Hello", artist: "Adele", genre: "pop", year: 2012, coverImageName: "cover1")
-    private let a2 = Album(title: "Thrill", artist: "Jackson", genre: "pop", year: 1992, coverImageName: "cover2")
-    private let a3 = Album(title: "Hey Jude", artist: "Beatles", genre: "pop", year: 1983, coverImageName: "cover3")
-    private let a4 = Album(title: "Love", artist: "Tony", genre: "pop", year: 1999, coverImageName: "cover4")
-    private let a5 = Album(title: "Pretty Boy", artist: "Salsa", genre: "pop", year: 2003, coverImageName: "cover5")
-    private let a6 = Album(title: "City", artist: "Cranberry", genre: "pop", year: 2008, coverImageName: "cover6")
+    //MARK: instance variables
+    private let a1 = Album(title: "Hello", artist: "Adele", genre: "pop", year: "2012", coverImageName: "cover1")
+    private let a2 = Album(title: "Thrill", artist: "Jackson", genre: "pop", year: "1992", coverImageName: "cover2")
+    private let a3 = Album(title: "Hey Jude", artist: "Beatles", genre: "pop", year: "1983", coverImageName: "cover3")
+    private let a4 = Album(title: "Love", artist: "Tony", genre: "pop", year: "1999", coverImageName: "cover4")
+    private let a5 = Album(title: "Pretty Boy", artist: "Salsa", genre: "pop", year: "2003", coverImageName: "cover5")
+    private let a6 = Album(title: "City", artist: "Cranberry", genre: "pop", year: "2008", coverImageName: "cover6")
     
     fileprivate var albums = [Album]()
     fileprivate var currentIndex = 0
     
+    //MARK: IBOutlets
+    @IBOutlet weak var albumTable: UITableView!
+
+    //MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         albums = [a1, a2, a3, a4, a5, a6]
-    }
-    
-    @IBOutlet weak var albumTable: UITableView!
-    
-    override func viewDidAppear(_ animated: Bool) {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: UITableViewDelegate, UITableViewDataSource
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,21 +59,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: SaveAlbumDelegate
 extension ViewController: SaveAlbumDelegate {
     
-    func saveTitle(album: Album, indexPath: IndexPath) {
-        albums[indexPath.row].title = album.title
+    func saveTitle(title: String, indexPath: IndexPath) {
+        self.albums[indexPath.row].title = title
     }
     
-    func saveYear(album: Album, indexPath: IndexPath) {
-        albums[indexPath.row].year = album.year
+    func saveYear(year: String, indexPath: IndexPath) {
+        self.albums[indexPath.row].year = year
     }
     
-    func saveArtist(album: Album, indexPath: IndexPath) {
-        albums[indexPath.row].artist = album.artist
+    func saveArtist(artist: String, indexPath: IndexPath) {
+        self.albums[indexPath.row].artist = artist
+        print(artist)
     }
     
-    func saveGenre(album: Album, indexPath: IndexPath) {
-        albums[indexPath.row].genre = album.genre
+    func saveGenre(genre: String, indexPath: IndexPath) {
+        self.albums[indexPath.row].genre = genre
     }
 }
