@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  CityGuide
-//
-//  Created by Florian Fittschen on 11/09/15.
-//  Copyright © 2015 TUM LS1. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -48,17 +40,19 @@ class ViewController: UIViewController {
         favorite: false)
     
     fileprivate var cities: [City]!
+    fileprivate var city: City!
     fileprivate var currentIndex = 0
     
     //MARK: IBOutlets
-    @IBOutlet weak var cityImageView: UIImageView!
-    @IBOutlet weak var cityTextView: UITextView!
+    @IBOutlet var cityImageView: UIImageView!
+    @IBOutlet var cityTextView: UITextView!
     
     //MARK: overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         
         cities = [hamburg, munich, cologne, berlin, frankfurt, bremen]
+        city = cities[currentIndex]
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,7 +61,8 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EditViewController {
-            destination.cities = self.cities
+            //destination.cities = self.cities
+            destination.city = city
             destination.currentIndex = self.currentIndex
             destination.delegate = self
         }
@@ -76,17 +71,17 @@ class ViewController: UIViewController {
     //MARK: IBActions
     @IBAction func didPressNext(_ sender: UIButton) {
         currentIndex = (currentIndex + 1) % cities.count
+        city = cities[currentIndex]
         updateView()
     }
     
     //MARK: private methods
     fileprivate func updateView() {
-        if let image = UIImage(named: cities[currentIndex].imageName) {
-            title = cities[currentIndex].composedName
-            cityImageView.image = image
-            cityTextView.text = cities[currentIndex].guide
-            cityTextView.scrollRangeToVisible(NSRange(location: 0, length: 0))
-        }
+    let image = UIImage(named: cities[currentIndex].imageName)
+        title = cities[currentIndex].composedName
+        cityImageView.image = image
+        cityTextView.text = cities[currentIndex].guide
+        cityTextView.scrollRangeToVisible(NSRange(location: 0, length: 0))
     }
 }
 

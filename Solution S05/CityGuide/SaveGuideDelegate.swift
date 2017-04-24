@@ -1,11 +1,8 @@
-//
-//  SaveQuestionDelegate.swift
-//  CityGuide
-//
-//  Created by ios on 4/24/17.
-//  Copyright © 2017 TUM LS1. All rights reserved.
-//
-
 protocol SaveGuideDelegate: class {
-    func saveGuide(cityGuide: City, cityIndex: Int)
+    /**
+     Save an edited "city" which replaces the original one in "cities".
+     
+     - Parameter cityGuide: the `city` which was edited and is to replace the original one
+     
+     */    func saveGuide(cityGuide: City, cityIndex: Int)
 }
