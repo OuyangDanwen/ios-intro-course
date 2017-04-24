@@ -1,4 +1,4 @@
-class Album {
+struct Album {
     var title: String
     var artist: String
     var genre: String
