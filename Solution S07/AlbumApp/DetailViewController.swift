@@ -8,11 +8,11 @@ class DetailViewController: UIViewController {
     weak var delegate: SaveAlbumDelegate?
     
     //MARK: IBOutlets
-    @IBOutlet weak var artistField: UITextField!
-    @IBOutlet weak var titleField: UITextField!
-    @IBOutlet weak var genreField: UITextField!
-    @IBOutlet weak var yearField: UITextField!
-    @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet var artistField: UITextField!
+    @IBOutlet var titleField: UITextField!
+    @IBOutlet var genreField: UITextField!
+    @IBOutlet var yearField: UITextField!
+    @IBOutlet var coverImage: UIImageView!
     
     //MARK: Overides
     override func viewDidLoad() {
@@ -43,13 +43,13 @@ extension DetailViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         
         if textField == artistField {
-            delegate?.saveArtist(artist: artistField.text!, indexPath: indexPath)
+            delegate?.saveArtist(artist: artistField.text ?? albums[indexPath.row].artist, indexPath: indexPath)
         } else if textField == titleField {
-            delegate?.saveTitle(title: titleField.text!, indexPath: indexPath)
+            delegate?.saveTitle(title: titleField.text ?? albums[indexPath.row].title, indexPath: indexPath)
         } else if textField == genreField {
-            delegate?.saveGenre(genre: genreField.text!, indexPath: indexPath)
+            delegate?.saveGenre(genre: genreField.text ?? albums[indexPath.row].genre, indexPath: indexPath)
         } else if textField == yearField {
-            delegate?.saveYear(year: yearField.text!, indexPath: indexPath)
+            delegate?.saveYear(year: yearField.text ?? albums[indexPath.row].year, indexPath: indexPath)
         }
     }
 }

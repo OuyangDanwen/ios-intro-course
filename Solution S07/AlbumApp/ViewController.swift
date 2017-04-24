@@ -11,10 +11,11 @@ class ViewController: UIViewController {
     private let a6 = Album(title: "City", artist: "Cranberry", genre: "pop", year: "2008", coverImageName: "cover6")
     
     fileprivate var albums = [Album]()
-    fileprivate var currentIndex = 0
+    
+    fileprivate let prototypeCellIdentifier = "cell"
     
     //MARK: IBOutlets
-    @IBOutlet weak var albumTable: UITableView!
+    @IBOutlet var albumTable: UITableView!
 
     //MARK: Overrides
     override func viewDidLoad() {
@@ -26,17 +27,20 @@ class ViewController: UIViewController {
         if let destination = segue.destination as? DetailViewController {
             destination.albums = self.albums
             destination.delegate = self
-            destination.indexPath = albumTable.indexPathForSelectedRow!
+            if let indexPath = albumTable.indexPathForSelectedRow {
+                destination.indexPath = indexPath
+            }
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         albumTable.reloadData()
     }
 }
 
 //MARK: UITableViewDelegate, UITableViewDataSource
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension ViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -45,10 +49,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return albums.count
     }
-    
+}
+
+//MARK: UITableViewDataSource
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: prototypeCellIdentifier, for: indexPath)
         let coverImageName = albums[indexPath.row].coverImageName
         
         cell.textLabel?.text = albums[indexPath.row].title
