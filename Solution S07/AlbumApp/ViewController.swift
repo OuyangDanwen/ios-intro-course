@@ -1,5 +1,7 @@
 import UIKit
 
+fileprivate let prototypeCellIdentifier = "cell"
+
 class ViewController: UIViewController {
     
     //MARK: instance variables
@@ -11,8 +13,6 @@ class ViewController: UIViewController {
     private let a6 = Album(title: "City", artist: "Cranberry", genre: "pop", year: "2008", coverImageName: "cover6")
     
     fileprivate var albums = [Album]()
-    
-    fileprivate let prototypeCellIdentifier = "cell"
     
     //MARK: IBOutlets
     @IBOutlet var albumTable: UITableView!
@@ -34,20 +34,8 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         albumTable.reloadData()
-    }
-}
-
-//MARK: UITableViewDelegate, UITableViewDataSource
-extension ViewController: UITableViewDelegate {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return albums.count
+        super.viewWillAppear(true)
     }
 }
 
@@ -63,6 +51,10 @@ extension ViewController: UITableViewDataSource {
         cell.imageView?.image = UIImage(named: coverImageName)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return albums.count
     }
 }
 

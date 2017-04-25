@@ -12,7 +12,7 @@ protocol SaveAlbumDelegate: class {
     /**
      Saves ".title" propery of an "Album"
     
-     - Parameter artist:        the property to be saved
+     - Parameter title:        the property to be saved
      - Parameter indexPath: the index path where the cell to be updated can be located
      */
     func saveTitle(title: String, indexPath: IndexPath)
@@ -20,7 +20,7 @@ protocol SaveAlbumDelegate: class {
     /**
      Saves ".year" propery of an "Album"
      
-     - Parameter artist:        the property to be saved
+     - Parameter year:        the property to be saved
      - Parameter indexPath: the index path where the cell to be updated can be located
      */
     func saveYear(year: String, indexPath: IndexPath)
@@ -28,7 +28,7 @@ protocol SaveAlbumDelegate: class {
     /**
      Saves ".genre" propery of an "Album"
      
-     - Parameter artist:        the property to be saved
+     - Parameter genre:        the property to be saved
      - Parameter indexPath: the index path where the cell to be updated can be located
      */
     func saveGenre(genre: String, indexPath: IndexPath)
