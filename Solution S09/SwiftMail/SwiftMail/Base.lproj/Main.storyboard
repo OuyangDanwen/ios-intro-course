@@ -73,32 +73,32 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lrh-Lf-Zud" id="avJ-b9-HUM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XLH-B4-gAU" customClass="UserImageView" customModule="SwiftMail" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="73.5" height="73.5"/>
+                                                    <rect key="frame" x="8" y="8" width="73" height="73"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="XLH-B4-gAU" secondAttribute="height" multiplier="1:1" id="zRL-mt-IfB"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ObN-zk-38m">
-                                                    <rect key="frame" x="89.5" y="8" width="277.5" height="74"/>
+                                                    <rect key="frame" x="89" y="8" width="278" height="73"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvf-n7-nZb" customClass="HeaderLabel" customModule="SwiftMail" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="277.5" height="24.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="278" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktM-ax-bXT" customClass="SubheaderLabel" customModule="SwiftMail" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="24.5" width="277.5" height="25"/>
+                                                            <rect key="frame" x="0.0" y="24" width="278" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbc-JS-TBZ" customClass="ContentLabel" customModule="SwiftMail" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="49.5" width="277.5" height="24.5"/>
+                                                            <rect key="frame" x="0.0" y="49" width="278" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -271,7 +271,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9n6-5S-XPY" customClass="HeaderLabel" customModule="SwiftMail" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="112" width="343" height="20.5"/>
+                                        <rect key="frame" x="16" y="112" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -396,20 +396,20 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRL-eg-GOk" customClass="SubheaderLabel" customModule="SwiftMail" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="23.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="recepient's email goes here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VyV-92-e5m" customClass="EmailTextField" customModule="SwiftMail" customModuleProvider="target">
-                                                <rect key="frame" x="23.5" y="0.0" width="351.5" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VyV-92-e5m" customClass="EmailTextField" customModule="SwiftMail" customModuleProvider="target">
+                                                <rect key="frame" x="24" y="0.0" width="351" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="subject goes here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2l-31-xsG" customClass="SubjectTextField" customModule="SwiftMail" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="subject" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2l-31-xsG" customClass="SubjectTextField" customModule="SwiftMail" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="38" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -434,7 +434,7 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="icon" value="icon_send"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="composeButtonPressed:" destination="p7b-lO-m1e" eventType="touchUpInside" id="OkZ-bN-Xma"/>
+                                    <action selector="floatingSendButtonPressed:" destination="p7b-lO-m1e" eventType="touchUpInside" id="7z9-C1-x1Z"/>
                                 </connections>
                             </button>
                         </subviews>

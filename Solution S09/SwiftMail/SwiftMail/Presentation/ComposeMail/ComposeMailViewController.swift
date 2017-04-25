@@ -18,10 +18,15 @@ class ComposeMailViewController: UIViewController {
     }
     
     @IBAction func sendButtonPressed(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+       validateText()
     }
 
-    @IBAction func composeButtonPressed(_ sender: FloatingButton) {
+    @IBAction func floatingSendButtonPressed(_ sender: FloatingButton) {
+        validateText()
+    }
+    
+    //private methods
+    private func validateText() {
         if recepientField.text == "" {
             showAlert(message: "Must specify a recepient!", alert: "No Recepient")
         } else if contentField.text == "" {
@@ -29,7 +34,6 @@ class ComposeMailViewController: UIViewController {
         }
     }
     
-    //private methods
     private func showAlert(message: String, alert: String) {
         let alertController: UIAlertController = UIAlertController(title: alert, message: message, preferredStyle: .alert)
         let nextAction = UIAlertAction(title: "Dismiss", style: .default) {
@@ -38,5 +42,4 @@ class ComposeMailViewController: UIViewController {
         alertController.addAction(nextAction)
         self.present(alertController, animated: true)
     }
-    
 }
