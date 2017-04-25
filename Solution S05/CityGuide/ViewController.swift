@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         favorite: false)
     
     fileprivate var cities: [City]!
-    fileprivate var city: City!
+    fileprivate var city: City?
     fileprivate var currentIndex = 0
     
     //MARK: IBOutlets
@@ -55,13 +55,13 @@ class ViewController: UIViewController {
         city = cities[currentIndex]
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         updateView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EditViewController {
-            //destination.cities = self.cities
             destination.city = city
             destination.currentIndex = self.currentIndex
             destination.delegate = self
@@ -77,9 +77,8 @@ class ViewController: UIViewController {
     
     //MARK: private methods
     fileprivate func updateView() {
-    let image = UIImage(named: cities[currentIndex].imageName)
         title = cities[currentIndex].composedName
-        cityImageView.image = image
+        cityImageView.image = UIImage(named: cities[currentIndex].imageName)
         cityTextView.text = cities[currentIndex].guide
         cityTextView.scrollRangeToVisible(NSRange(location: 0, length: 0))
     }

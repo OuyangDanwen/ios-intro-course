@@ -3,8 +3,7 @@ import UIKit
 class EditViewController: UIViewController {
     
     //MARK: instance variables
-    //var cities = [City]()
-    var city: City!
+    var city: City?
     var currentIndex = 0
     weak var delegate: SaveGuideDelegate?
     
@@ -33,30 +32,25 @@ class EditViewController: UIViewController {
     }
   
     @IBAction func markFavourite(_ sender: UISwitch) {
-        if city.favorite {
-            city.favorite = false
-        } else {
-            city!.favorite = true
+        if let city = city {
+            self.city?.favorite = !city.favorite
         }
     }
 
     //MARK: private methods
     private func saveGuide() -> Bool {
-        if guideTextView.text == "" {
-            return false
-        } else {
-            city.guide = guideTextView.text
-            self.delegate?.saveGuide(cityGuide: city!, cityIndex: currentIndex)
+        if let city = city, guideTextView.text != "" {
+            self.city?.guide = guideTextView.text
+            self.delegate?.saveGuide(cityGuide: city, cityIndex: currentIndex)
             return true
         }
+        return false
     }
 
      private func initializeData() {
-        guideTextView.text = city.guide
-        if city!.favorite {
-            favouriteStatus.setOn(true, animated: false)
-        } else {
-            favouriteStatus.setOn(false, animated: false)
+        if let city = city {
+            guideTextView.text = city.guide
+            favouriteStatus.setOn(city.favorite, animated: false)
         }
     }
     
