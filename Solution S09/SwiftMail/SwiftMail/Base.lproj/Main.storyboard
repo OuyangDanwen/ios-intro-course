@@ -381,6 +381,7 @@
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="icon_send" id="4Nn-4r-uqv">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="sendButtonPressed:" destination="p7b-lO-m1e" id="ae4-dp-Set"/>
                                             </connections>
@@ -388,21 +389,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YiV-Lq-7Ty" customClass="FloatingButton" customModule="SwiftMail" customModuleProvider="target">
-                                <rect key="frame" x="289" y="577" width="70" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="6E3-Yj-y5B"/>
-                                    <constraint firstAttribute="width" constant="70" id="zD8-Lm-7Rg"/>
-                                </constraints>
-                                <state key="normal" title="Compose"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="icon_send"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="composeButtonPressed:" destination="p7b-lO-m1e" eventType="touchUpInside" id="OkZ-bN-Xma"/>
-                                    <action selector="composeMail:" destination="p7b-lO-m1e" eventType="touchUpInside" id="ceR-Ue-wgS"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yfR-iZ-kj0">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
@@ -415,7 +401,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VyV-92-e5m" customClass="EmailTextField" customModule="SwiftMail" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="recepient's email goes here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VyV-92-e5m" customClass="EmailTextField" customModule="SwiftMail" customModuleProvider="target">
                                                 <rect key="frame" x="23.5" y="0.0" width="351.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -423,7 +409,7 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2l-31-xsG" customClass="SubjectTextField" customModule="SwiftMail" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="subject goes here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2l-31-xsG" customClass="SubjectTextField" customModule="SwiftMail" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="38" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -437,6 +423,20 @@
                                     </textView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YiV-Lq-7Ty" customClass="FloatingButton" customModule="SwiftMail" customModuleProvider="target">
+                                <rect key="frame" x="289" y="577" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="6E3-Yj-y5B"/>
+                                    <constraint firstAttribute="width" constant="70" id="zD8-Lm-7Rg"/>
+                                </constraints>
+                                <state key="normal" title="Compose"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="icon_send"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="composeButtonPressed:" destination="p7b-lO-m1e" eventType="touchUpInside" id="OkZ-bN-Xma"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
