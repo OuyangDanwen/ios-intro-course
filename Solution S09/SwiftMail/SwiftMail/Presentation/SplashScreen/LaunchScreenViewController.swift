@@ -23,8 +23,8 @@ class LaunchScreenViewController: UIViewController {
     //MARK: private methods
     private func animate() {
         UIView.animate(withDuration: 1.5, animations: {
-            self.iconImage.transform = CGAffineTransform.init(rotationAngle: 90) }){ (true) in UIView.animate(withDuration: 1.5, animations: {
-                self.iconImage.transform = CGAffineTransform.init(translationX: 0, y: -200)}, completion: { (true) in })
+            self.iconImage.transform = self.iconImage.transform.concatenating(CGAffineTransform(rotationAngle: 90)) }){ (true) in UIView.animate(withDuration: 1.5, animations: {
+                self.iconImage.transform = self.iconImage.transform.concatenating(CGAffineTransform(translationX: 0, y: 200))}, completion: { (true) in })
         }
     }
 }
