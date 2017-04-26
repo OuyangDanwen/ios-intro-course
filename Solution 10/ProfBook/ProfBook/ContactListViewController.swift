@@ -32,6 +32,7 @@ class ContactListViewController: UIViewController {
 		tableView.dataSource = self
         hideInfoBubble()
 		updateContactsFromServer()
+        tableView.reloadData()
 	}
 	
 	/*
@@ -40,8 +41,6 @@ class ContactListViewController: UIViewController {
 	* the data afterwards makes the specific loading times recognizeable.
 	*/
 	override func viewDidAppear(_ animated: Bool) {
-		tableView.reloadData()
-
 		if viewControllerLoadedFirstTime {
 			viewControllerLoadedFirstTime = false
 			DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -57,6 +56,7 @@ class ContactListViewController: UIViewController {
                 applyFilter()
             }
         }
+        tableView.reloadData()
     }
 	
 	func updateContactsFromServer() {
@@ -106,12 +106,8 @@ class ContactListViewController: UIViewController {
 			} catch {
 				print("Changes couldn't be saved")
 			}
-            
-            let userDefaults = UserDefaults.standard
-            if userDefaults.bool(forKey: self.filterIdentifier) {
-                self.applyFilter()
-            }
-		}
+            self.applyFilter()
+        }
 	}
 	
 	func applyFilter(){
@@ -202,11 +198,11 @@ extension ContactListViewController: UITableViewDelegate, UITableViewDataSource 
 
     // Use the image with applied filter and show it
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let defaults = UserDefaults.standard
 		let cell = tableView.dequeueReusableCell(withIdentifier: contactCellReuseIdentifier, for: indexPath)
 		guard let contactCell = cell as? ContactTableViewCell else {
             return cell
         }
-		
 		
 		if indexPath.row < contacts.count {
 			let contact = contacts[indexPath.row]
@@ -217,7 +213,11 @@ extension ContactListViewController: UITableViewDelegate, UITableViewDataSource 
 				contactCell.numberLabel.text = contact.phoneNumber
 				contactCell.starButton.setTitle("★", for: UIControlState.normal)
 				contactCell.starButton.setTitleColor(UIColor.yellow, for: .normal)
-				contactCell.roundedImageView.image = imagesWithAppliedFilter[imageName]
+                if defaults.bool(forKey: filterIdentifier) {
+                    contactCell.roundedImageView.image = imagesWithAppliedFilter[imageName]
+                } else {
+                    contactCell.roundedImageView.image = imageBuffer[imageName]
+                }
 			}
 		} else {
 			let contact = serverContacts[indexPath.row-contacts.count]
@@ -225,7 +225,11 @@ extension ContactListViewController: UITableViewDelegate, UITableViewDataSource 
 			contactCell.numberLabel.text = contact.phoneNumber
 			contactCell.starButton.setTitle("☆", for: UIControlState.normal)
 			contactCell.starButton.setTitleColor(UIColor.black, for: .normal)
-			contactCell.roundedImageView.image = imagesWithAppliedFilter[contact.imageName]
+            if defaults.bool(forKey: filterIdentifier) {
+                contactCell.roundedImageView.image = imagesWithAppliedFilter[contact.imageName]
+            } else {
+                contactCell.roundedImageView.image = imageBuffer[contact.imageName]
+            }
 		}
 		
 		contactCell.delegate = self
