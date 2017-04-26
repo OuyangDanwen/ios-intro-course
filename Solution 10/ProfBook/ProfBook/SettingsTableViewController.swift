@@ -10,9 +10,10 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-	@IBOutlet var filterSwitch: UISwitch!
 	internal let filterIdentifier = "filterActivated"
     internal let defaults = UserDefaults.standard
+    
+    @IBOutlet var filterSwitch: UISwitch!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
