@@ -51,8 +51,13 @@ class ContactListViewController: UIViewController {
 					self.hideInfoBubbleAnimated()
 				}
 			}
-		}
-	}
+        } else {
+            let userDefaults = UserDefaults.standard
+            if userDefaults.bool(forKey: filterIdentifier) {
+                applyFilter()
+            }
+        }
+    }
 	
 	func updateContactsFromServer() {
 		
@@ -101,7 +106,11 @@ class ContactListViewController: UIViewController {
 			} catch {
 				print("Changes couldn't be saved")
 			}
-			self.applyFilter()
+            
+            let userDefaults = UserDefaults.standard
+            if userDefaults.bool(forKey: self.filterIdentifier) {
+                self.applyFilter()
+            }
 		}
 	}
 	
