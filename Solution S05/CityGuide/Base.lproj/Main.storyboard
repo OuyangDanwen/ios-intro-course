@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dt0-IK-Mo1">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CityName-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CityGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-Zy-n5k">
+                                <rect key="frame" x="20" y="242.5" width="335" height="314.5"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rg6-w3-GQu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="234.5"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rg6-w3-GQu" secondAttribute="height" multiplier="16:10" id="xrW-og-X9e"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1Y-LA-kE2">
+                                <rect key="frame" x="171.5" y="565" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="didPressNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="43j-cc-rSb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yo3-UI-gp5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="259"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="S1Y-LA-kE2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1yZ-9f-Ixb"/>
+                            <constraint firstItem="7fp-Zy-n5k" firstAttribute="top" secondItem="rg6-w3-GQu" secondAttribute="bottom" constant="8" id="FN9-VE-MvK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="S1Y-LA-kE2" secondAttribute="bottom" constant="8" id="Fym-gx-saO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7fp-Zy-n5k" secondAttribute="bottom" constant="46" id="Ifb-DK-zBG"/>
+                            <constraint firstAttribute="trailing" secondItem="7fp-Zy-n5k" secondAttribute="trailing" constant="20" id="Jch-KE-6JQ"/>
+                            <constraint firstAttribute="trailing" secondItem="rg6-w3-GQu" secondAttribute="trailing" id="SAt-gX-7Jd"/>
+                            <constraint firstItem="7fp-Zy-n5k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Ztw-zG-cBq"/>
+                            <constraint firstItem="rg6-w3-GQu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aoQ-ER-ffd"/>
+                            <constraint firstItem="rg6-w3-GQu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s7Q-NU-ghP"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="CityName" id="bMR-77-knc">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="VOA-6t-kxs">
+                            <connections>
+                                <segue destination="y4R-QH-14D" kind="show" identifier="editGuide" id="99t-i6-TMV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cityImageView" destination="rg6-w3-GQu" id="1pt-bw-gVD"/>
+                        <outlet property="cityTextView" destination="7fp-Zy-n5k" id="JRe-fV-ycg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1498" y="510"/>
+        </scene>
+        <!--Edit Guide-->
+        <scene sceneID="9Zy-q1-dJa">
+            <objects>
+                <viewController id="y4R-QH-14D" customClass="EditViewController" customModule="CityGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dVD-fD-m9m"/>
+                        <viewControllerLayoutGuide type="bottom" id="DGN-i9-fLb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wkx-Uu-KHl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5VU-pp-dHn">
+                                <rect key="frame" x="318" y="80" width="51" height="31"/>
+                                <connections>
+                                    <action selector="markFavourite:" destination="y4R-QH-14D" eventType="valueChanged" id="3JC-3f-WbC"/>
+                                </connections>
+                            </switch>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hys-4S-Wcp">
+                                <rect key="frame" x="24" y="119" width="343" height="527"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcN-6H-sEV">
+                                <rect key="frame" x="24" y="80" width="101" height="30"/>
+                                <state key="normal" title="Hide Keyboard"/>
+                                <connections>
+                                    <action selector="didPressHideKeyboard:" destination="y4R-QH-14D" eventType="touchUpInside" id="RjA-yH-iKX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DGN-i9-fLb" firstAttribute="top" secondItem="hys-4S-Wcp" secondAttribute="bottom" constant="21" id="5QG-Rp-Rq0"/>
+                            <constraint firstItem="hys-4S-Wcp" firstAttribute="top" secondItem="5VU-pp-dHn" secondAttribute="bottom" constant="8" id="Jwl-xi-DJz"/>
+                            <constraint firstItem="hys-4S-Wcp" firstAttribute="top" secondItem="5VU-pp-dHn" secondAttribute="bottom" constant="8" id="JyT-in-Bx6"/>
+                            <constraint firstItem="xcN-6H-sEV" firstAttribute="leading" secondItem="Wkx-Uu-KHl" secondAttribute="leadingMargin" constant="8" id="Vg6-d9-pbt"/>
+                            <constraint firstItem="xcN-6H-sEV" firstAttribute="top" secondItem="dVD-fD-m9m" secondAttribute="bottom" constant="16" id="cwR-La-OU1"/>
+                            <constraint firstItem="5VU-pp-dHn" firstAttribute="top" secondItem="dVD-fD-m9m" secondAttribute="bottom" constant="16" id="cz2-Jg-C6r"/>
+                            <constraint firstAttribute="trailing" secondItem="5VU-pp-dHn" secondAttribute="trailing" constant="8" id="g2d-hf-3Vx"/>
+                            <constraint firstItem="hys-4S-Wcp" firstAttribute="trailing" secondItem="Wkx-Uu-KHl" secondAttribute="trailingMargin" constant="8" id="qnN-Me-1na"/>
+                            <constraint firstItem="hys-4S-Wcp" firstAttribute="leading" secondItem="Wkx-Uu-KHl" secondAttribute="leadingMargin" constant="8" id="s6Y-kO-eMF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Guide" id="TXS-f6-eCL">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="vBQ-Du-GnW">
+                            <connections>
+                                <action selector="didPressSave:" destination="y4R-QH-14D" id="bC5-BU-ArU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="favouriteStatus" destination="5VU-pp-dHn" id="U10-bY-sce"/>
+                        <outlet property="guideTextView" destination="hys-4S-Wcp" id="uSZ-eR-srb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jwj-g3-F8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2256.8000000000002" y="523.98800599700155"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UKk-76-B6u">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="dt0-IK-Mo1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Uh-RZ-3zE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2Nc-7u-3vt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nQw-Cd-ZAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="477"/>
+        </scene>
+    </scenes>
+</document>
